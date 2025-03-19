@@ -29,3 +29,4 @@ const OrderSchema =
             required:true
         }
     });
+module.exports = mongoose.model('order',OrderSchema);

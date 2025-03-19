@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const RoleSchema =
+const VoucherSchema =
     new mongoose.Schema({
-        role:{
+        displayName:{
             type:String,
             required:true,
             unique:true
@@ -9,6 +9,9 @@ const RoleSchema =
         description:{
             type:String,
             required:true
+        },
+        type:{
+            type:String,
         }
     });
-module.exports = mongoose.model('role',RoleSchema);
+module.exports = mongoose.model('voucher',VoucherSchema);

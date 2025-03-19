@@ -14,3 +14,4 @@ const CategorySchema =
             required:true
         }
     });
+module.exports = mongoose.model('category',CategorySchema);

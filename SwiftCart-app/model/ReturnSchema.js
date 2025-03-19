@@ -21,7 +21,8 @@ const ReturnSchema =
             required:true
         },
         completedData:{
-            type:String, // refund or new product 
+            type:String, // refund or new product
             required:true
         }
     });
+module.exports = mongoose.model('return',ReturnSchema);

@@ -29,3 +29,4 @@ const RefundSchema =
             required:true
         }
     });
+module.exports = mongoose.model('refund',RefundSchema);

@@ -37,3 +37,4 @@ const ProductSchema =
             required:true
         }
     });
+module.exports = mongoose.model('product',ProductSchema);

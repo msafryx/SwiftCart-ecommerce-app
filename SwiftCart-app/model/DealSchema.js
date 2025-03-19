@@ -18,3 +18,4 @@ const DealSchema =
             required:true
         }
     });
+module.exports = mongoose.model('deal',DealSchema);

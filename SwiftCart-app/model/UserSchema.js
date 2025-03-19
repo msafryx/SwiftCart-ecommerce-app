@@ -35,3 +35,4 @@ const UserSchema =
             type:Object,
         }
     });
+module.exports = mongoose.model('user',UserSchema);
