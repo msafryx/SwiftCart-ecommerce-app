@@ -1,17 +1,34 @@
-version: "3.8"
 
 services:
-  react-native-app:
-    build: .
-    container_name: swiftcart-react-native-container
+  frontend:
+    build:
+      context: ./frontend  # Directory with frontend Dockerfile
+    container_name: swiftcart-frontend
     ports:
-      - "8081:8081"
-    volumes:
-      - ./SwiftCart-app:/app
-    stdin_open: true
-    tty: true
+      - "8081:8081"  # Expose Metro bundler port
+    networks:
+      - app-network
     environment:
-      - NODE_ENV=development
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
+    volumes:
+      - ./frontend:/app  # Sync local changes
+
+  backend:
+    build:
+      context: ./backend  # Directory with backend Dockerfile
+    container_name: swiftcart-backend
+    ports:
+      - "3000:3000"  # Expose backend API port
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/swiftcartdb
+    volumes:
+      - ./backend:/app
+    command: tail -f /dev/null
 
   mongodb:
     image: mongo:6
@@ -19,15 +36,13 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb_data:/data/db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: swiftcart
+      - mongodb-data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
-  mongodb_data:
-
-
-
-
+  mongodb-data:

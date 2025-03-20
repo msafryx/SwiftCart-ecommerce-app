@@ -1,5 +1,5 @@
 node_modules/
-.env
+SwiftCart-app/.env
 .docker
 .idea/
 *.log
