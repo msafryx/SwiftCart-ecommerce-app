@@ -7,6 +7,9 @@ WORKDIR /app
 # Install the new Expo CLI and ngrok globally
 RUN npm install -g expo @expo/ngrok
 
+# Create a new Expo app non-interactively
+RUN npx create-expo-app . 
+
 # Copy the local frontend files
 COPY . .
 
