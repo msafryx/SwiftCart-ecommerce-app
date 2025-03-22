@@ -4,6 +4,9 @@ FROM node:22
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install nodemon globally
+RUN npm install -g nodemon
+
 # Initialize package.json automatically (use npm init -y)
 RUN npm init -y
 
@@ -17,5 +20,5 @@ COPY . ./
 EXPOSE 3000
 
 # Start the backend application
-CMD ["node","index.js"]
+CMD ["nodemon","index.js"]
 
