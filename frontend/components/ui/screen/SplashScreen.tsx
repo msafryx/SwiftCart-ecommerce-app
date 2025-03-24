@@ -1,7 +1,7 @@
 import {Text, StyleSheet, Animated, View, Image} from "react-native";
-import {red} from "react-native-reanimated/lib/typescript/Colors";
 import {useEffect, useRef} from "react";
 import {COLORS} from "@/constants/ColourPallete";
+import appJson  from '../../../app.json';
 
 export default function SplashScreen({onFinish}:any){
     const progress = useRef(new Animated.Value(0)).current;
@@ -24,13 +24,37 @@ export default function SplashScreen({onFinish}:any){
                     resizeMode={'contain'}/>
             </View>
             <Text>Shop Smarter, Move Faster</Text>
-            <View style={styles.progressContainer}></View>
+            <View style={styles.progressContainer}>
+                <Animated.View
+                style={[styles.progressBar,
+                    {width:progress.interpolate({inputRange:[0,100], outputRange:['0%','100%']})}]}/>
+            </View>
+            <View style={styles.bottom}>
+                <Text> Version : {appJson.expo.version}</Text>
+                <Text> DevSaf</Text>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
 
+    bottom:{
+        width:'100%',
+        height:50,
+        borderWidth:1,
+        position:'absolute',
+        bottom:0,
+        flexDirection:'row',
+        padding:10,
+        justifyContent:"space-between"
+    },
+    progressBar:
+        {
+            backgroundColor:COLORS.darkOrange,
+            borderRadius:5,
+            height:'100%'
+        },
     progressContainer:
         {
             width:'80%',

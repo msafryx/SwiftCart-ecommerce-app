@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View, Platform } from 'react-native';
 import {useState} from "react";
 import SplashScreen from "@/components/ui/screen/SplashScreen";
+import Dashboard from "@/components/ui/screen/Dashboard";
 
 
 export default function HomeScreen() {
@@ -10,7 +11,7 @@ export default function HomeScreen() {
           {isLoading?(
                   <SplashScreen onFinish={()=>{setIsLoading(false)}}/>
               ):(
-                  <HomeScreen/>
+                  <Dashboard/>
               )}
       </View>
 

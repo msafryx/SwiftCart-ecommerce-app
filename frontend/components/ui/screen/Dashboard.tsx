@@ -1,7 +1,7 @@
 import {Text, StyleSheet} from "react-native";
 import {red} from "react-native-reanimated/lib/typescript/Colors";
 
-export default function HomeScreen(){
+export default function Dashboard(){
     return(
         <Text style = {styles.homeText}>
             Home Page
