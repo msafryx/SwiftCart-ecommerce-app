@@ -1,8 +1,9 @@
 import type from "ajv/lib/vocabularies/jtd/type";
 
 export const COLORS={
-    darkGray:'#bdc3c7',
-    darkOrange:'#e74c3c'
+    darkGray:'#989fa1',
+    darkOrange:'#cc2c1e',
+    light:'#FFF'
 }as const;
 
 export type ColorTypes = keyof typeof COLORS;

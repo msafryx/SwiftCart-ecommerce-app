@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from "react-native";
 export default function HomeProductScreen(){
     return(
         <View style={styles.container}>
-            <Text>Home Menu Screen</Text>
+            <Text>Home Product Screen</Text>
         </View>
     )
 }
