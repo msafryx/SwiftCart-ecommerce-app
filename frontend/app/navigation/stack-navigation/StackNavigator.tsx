@@ -9,6 +9,7 @@ import ProfileScreen from "@/components/ui/screen/other/ProfileScreen";
 import SettingsScreen from "@/components/ui/screen/other/SettingsScreen";
 import VouchersScreen from "@/components/ui/screen/other/VouchersScreen";
 import LogOutScreen from "@/components/ui/screen/other/LogOutScreen";
+import LoginScreen from "@/components/ui/screen/security/LoginScreen";
 const Stack = createStackNavigator();
 export default function StackNavigator(){
     return(
@@ -43,6 +44,10 @@ export default function StackNavigator(){
             <Stack.Screen name={'LogOut'}
                           options={{title:'Log Out'}}
                           component={LogOutScreen}/>
+            <Stack.Screen name={'Login'}
+                          options={{title:'Login Here '}}
+                          component={LoginScreen}/>
+
 
         </Stack.Navigator>
     )
