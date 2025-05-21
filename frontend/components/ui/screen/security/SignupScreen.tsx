@@ -5,9 +5,10 @@ import {useState} from "react";
 import {Icon} from "react-native-paper";
 
 const logo = require('../../../../assets/images/logo/logo-sc.png');
-export default function LoginScreen({navigation}:any){
+export default function SignupScreen(){
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
+    const [displayName, setDisplayName]= useState('');
     const [passwordDisplayState, setPasswordDisplayState]= useState(false);
 
 
@@ -38,11 +39,18 @@ export default function LoginScreen({navigation}:any){
                         }} size={20} icon={passwordDisplayState?'eye':'eye-off'}/> }
                     />
                 </View>
-                <TouchableOpacity style={styles.forgetPasswordButton}>
-                    <Text style={styles.forgetPasswordText}> Forgot Password</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.loginText}> Login</Text>
+                <View style={styles.formGroup}>
+                    <TextInput
+                        label="Display Name"
+                        mode={'outlined'}
+                        value={email}
+                        onChangeText={text => setDisplayName(text)}
+                    />
+                </View>
+
+
+                <TouchableOpacity style={styles.signupButton}>
+                    <Text style={styles.signupText}> Register</Text>
                 </TouchableOpacity>
                 <Text style={styles.separateText}> OR </Text>
                 <View style={styles.socialLoginWrapper}>
@@ -59,10 +67,8 @@ export default function LoginScreen({navigation}:any){
                         <Icon size={20} source={'github'}></Icon>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity
-                    onPress={()=>navigation.navigate('Signup')}
-                    style={{...styles.loginButton,backgroundColor:COLORS.primary}}>
-                    <Text style={styles.loginText}> Register with the email</Text>
+                <TouchableOpacity style={{...styles.signupButton,backgroundColor:COLORS.primary}}>
+                    <Text style={styles.signupText}> Register with the email</Text>
                 </TouchableOpacity>
 
 
@@ -91,10 +97,10 @@ const styles = StyleSheet.create({
         textAlign:'center',
         marginTop:30
     },
-    loginText:{
+    signupText:{
         color:COLORS.light,
     },
-    loginButton:{
+    signupButton:{
         backgroundColor:COLORS.blue,
         height:50,
         marginTop:30,
