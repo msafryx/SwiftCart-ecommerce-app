@@ -1,4 +1,5 @@
 import {View, Text, StyleSheet} from "react-native";
+import {COLORS} from "@/constants/ColourPallete";
 
 export default function HomeCartScreen(){
     return(
@@ -11,6 +12,7 @@ export default function HomeCartScreen(){
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        backgroundColor:COLORS.light,
         alignItems:'center',
         justifyContent:'center'
     }
