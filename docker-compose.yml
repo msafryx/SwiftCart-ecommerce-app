@@ -12,6 +12,7 @@ services:
       - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
     volumes:
       - ./frontend:/app  # Sync local changes
+      - /app/node_modules
 
   backend:
     build:

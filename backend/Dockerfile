@@ -1,24 +1,20 @@
-# Use the official Node.js image as a base
+# Use the official Node.js 22 image as a base
 FROM node:22
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install nodemon globally
-RUN npm install -g nodemon
-
-# Initialize package.json automatically (use npm init -y)
+# Initialize a new package.json
 RUN npm init -y
 
-# Install necessary backend dependencies
+# Install backend dependencies
 RUN npm install express mongoose body-parser dotenv
 
-# Copy the backend source code into the container
-COPY . ./
+# Create a .env file with a placeholder MongoDB URI
+RUN echo "MONGO_URI=mongodb://mongodb:27017/swiftcartdb" > .env
 
-# Expose the backend port (3000 in this case)
+# Expose the backend port
 EXPOSE 3000
 
-# Start the backend application
-CMD ["nodemon","index.js"]
-
+# Placeholder entry point (will fail until index.js is added)
+CMD ["node", "index.js"]
