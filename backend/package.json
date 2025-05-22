@@ -1,15 +1,17 @@
 {
-  "name": "swiftcart-app",
+  "name": "swiftcart-",
   "version": "1.0.0",
-  "description": "",
+  "description": "swiftcart e-commerce app",
   "main": "index.js",
   "scripts": {
-    "start": "expo start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/msafryx/SwiftCart-app.git"
-  },
-  "private": true
+  "author": "Muhammed Safry",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
+  }
 }

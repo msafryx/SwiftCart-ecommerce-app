@@ -1,1 +1,0 @@
-const Bookmark = require('../model/CategorySchema');
