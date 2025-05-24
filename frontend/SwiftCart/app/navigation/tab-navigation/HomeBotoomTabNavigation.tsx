@@ -16,11 +16,11 @@ export default function HomeBottomTabNavigation({navigation}:any){
             screenOptions={({route, focused}:any)=>({
                 tabBarIcon:({color, size})=>{
                     let iconName;
-                    if(route.name==='Menu') iconName = focused? 'menu':'menu-outline';
-                    else if(route.name==='Cart') iconName = focused? 'cart':'cart-outline';
-                    else if(route.name==='Home') iconName = focused? 'home':'home-outline';
-                    else if(route.name==='Bookmarks') iconName = focused? 'heart':'heart-outline';
-                    else if(route.name==='Products') iconName = focused? 'grid':'grid-outline';
+                    if(route.name==='Menu') iconName = focused? 'menu':'menu';
+                    else if(route.name==='Cart') iconName = focused? 'cart':'cart';
+                    else if(route.name==='Home') iconName = focused? 'home':'home';
+                    else if(route.name==='Bookmarks') iconName = focused? 'heart':'heart';
+                    else if(route.name==='Products') iconName = focused? 'grid':'grid';
                     // @ts-ignore
                     return <Ionicons name={iconName} size={22} color={color}/>
                 },

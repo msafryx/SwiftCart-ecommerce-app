@@ -27,7 +27,11 @@ interface SplashScreenProps {
     onFinish?: () => void
 }
 
-export default function SplashScreen({ onFinish}: any) {
+interface SplashScreenProps {
+    onFinish?: boolean
+}
+
+export default function SplashScreen({onFinish}: any) {
     const progress = useRef(new Animated.Value(0)).current;
     useEffect(() => {
         Animated.timing(progress, {
