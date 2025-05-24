@@ -4,14 +4,12 @@ import {useState} from "react";
 import DisplayTypeWidget from "@/components/ui/screen/share/DisplayTypeWidget";
 import {COLORS} from "@/constants/ColourPallete";
 import ProductGridViewWidget from "@/components/ui/screen/home/widget/ProductGridViewWidget";
+import ProductListViewWidget from "@/components/ui/screen/home/widget/ProductListViewWidget";
 
 export default function HomeProductScreen(){
     const [searchQuery, setSearchQuery] = useState('');
     const [isGridEnabled, setIsGridEnabled] = useState(true);
-    const manageGridView=({state}:any)=>{
-        setIsGridEnabled(state);
-        console.log(isGridEnabled);
-    }
+
     return(
         <View style={styles.container}>
             <Searchbar
@@ -19,7 +17,8 @@ export default function HomeProductScreen(){
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />
-            <DisplayTypeWidget callBack={manageGridView}/>
+            <DisplayTypeWidget
+                callBack ={(state:boolean)=>(state)}/>
 
             {isGridEnabled?(
                 <ScrollView>
@@ -30,10 +29,10 @@ export default function HomeProductScreen(){
                 </ScrollView>
             ):(
                 <ScrollView>
-                    <ProductGridViewWidget/>
-                    <ProductGridViewWidget/>
-                    <ProductGridViewWidget/>
-                    <ProductGridViewWidget/>
+                    <ProductListViewWidget/>
+                    <ProductListViewWidget/>
+                    <ProductListViewWidget/>
+                    <ProductListViewWidget/>
                 </ScrollView>
             )}
 

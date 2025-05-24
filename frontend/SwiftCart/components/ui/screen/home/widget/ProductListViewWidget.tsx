@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 import {COLORS} from "@/constants/ColourPallete";
 import {Icon} from "react-native-paper";
 
-export default function ProductGridViewWidget(){
+export default function ProductListViewWidget(){
     return(
         <TouchableOpacity style={styles.container}>
             <View style={styles.imageView}>
@@ -12,8 +12,8 @@ export default function ProductGridViewWidget(){
                 <Image source={'https://www.castlecameras.co.uk/images/products/large/2221.jpg'}
                        style={styles.image} resizeMode={"contain"}/>
             </View>
-            <View>
-                <Text style={styles.name}>Nikon D750 DSLR Camera with 24-120mm VR Lens</Text>
+            <View style={{flex:1, padding:5}}>
+                <Text style={styles.name}>Nikon D750 DSLR Camera with 24...</Text>
                 <Text style={styles.price}>LKR 150,000</Text>
                 <Text style={styles.quantity}>QTY : 15</Text>
             </View>
@@ -50,9 +50,11 @@ const styles = StyleSheet.create({
 
     image:{
         width:'100%',
-        aspectRatio:16/12,
+        height:'100%'
     },
     imageView:{
+        width:150,
+        height:110,
         backgroundColor:COLORS.light,
         padding:3
     },
@@ -62,7 +64,8 @@ const styles = StyleSheet.create({
         padding:8,
         backgroundColor:COLORS.lightGray,
         borderRadius:5,
-        marginBottom:5
+        marginBottom:5,
+        flexDirection:'row'
 
     }
 })

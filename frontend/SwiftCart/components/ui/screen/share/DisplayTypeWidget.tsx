@@ -4,6 +4,14 @@ import {COLORS} from "@/constants/ColourPallete";
 import {useState} from "react";
 
 
+interface DisplayTypeWidgetProps {
+    callBack?: (state: boolean) => boolean
+}
+
+interface DisplayTypeWidgetProps {
+    callBack?: (state: boolean) => boolean
+}
+
 export default function DisplayTypeWidget({callBack}: any) {
     const [gridState, setGridState] = useState(true)
     return (
