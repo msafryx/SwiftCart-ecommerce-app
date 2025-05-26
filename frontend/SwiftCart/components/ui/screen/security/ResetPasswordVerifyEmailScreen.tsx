@@ -39,7 +39,7 @@ export default function ResetPasswordVerifyEmailScreen({navigation}:any){
 
 
                 <TouchableOpacity
-                    onPress={()=>navigation.navigate('ResetPasswordVerifyEmailScreen')}
+                    onPress={()=>navigation.navigate('ResetPasswordScreen')}
                     style={styles.signupButton}>
                     <Text style={styles.signupText}> Verify</Text>
                 </TouchableOpacity>
