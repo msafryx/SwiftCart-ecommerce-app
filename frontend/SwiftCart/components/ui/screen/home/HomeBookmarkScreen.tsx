@@ -17,8 +17,7 @@ export default function HomeBookMarkScreen(){
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />
-            <DisplayTypeWidget
-                callBack ={(state:boolean)=>(state)}/>
+            <DisplayTypeWidget callBack ={(state:boolean)=>setIsGridEnabled(state)}/>
 
             {isGridEnabled?(
                 <ScrollView>
