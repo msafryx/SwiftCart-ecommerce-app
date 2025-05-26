@@ -5,7 +5,7 @@ import {useState} from "react";
 import {Icon} from "react-native-paper";
 
 const logo = require('../../../../assets/images/logo/logo-sc.png');
-export default function SignupScreen(){
+export default function SignupScreen({navigation}:any){
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const [displayName, setDisplayName]= useState('');
@@ -43,7 +43,7 @@ export default function SignupScreen(){
                     <TextInput
                         label="Display Name"
                         mode={'outlined'}
-                        value={email}
+                        value={displayName}
                         onChangeText={text => setDisplayName(text)}
                     />
                 </View>
@@ -53,24 +53,25 @@ export default function SignupScreen(){
                     <Text style={styles.signupText}> Register</Text>
                 </TouchableOpacity>
                 <Text style={styles.separateText}> OR </Text>
-                <View style={styles.socialLoginWrapper}>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'google'}></Icon>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'facebook'}></Icon>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'twitter'}></Icon>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'github'}></Icon>
-                    </TouchableOpacity>
-                </View>
-                <TouchableOpacity style={{...styles.signupButton,backgroundColor:COLORS.primary}}>
-                    <Text style={styles.signupText}> Register with the email</Text>
+                {/*<View style={styles.socialLoginWrapper}>*/}
+                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
+                {/*        <Icon size={20} source={'google'}></Icon>*/}
+                {/*    </TouchableOpacity>*/}
+                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
+                {/*        <Icon size={20} source={'facebook'}></Icon>*/}
+                {/*    </TouchableOpacity>*/}
+                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
+                {/*        <Icon size={20} source={'twitter'}></Icon>*/}
+                {/*    </TouchableOpacity>*/}
+                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
+                {/*        <Icon size={20} source={'github'}></Icon>*/}
+                {/*    </TouchableOpacity>*/}
+                {/*</View>*/}
+                <TouchableOpacity
+                    onPress={()=>navigation.navigate('Login')}
+                    style={{...styles.signupButton,backgroundColor:COLORS.primary}}>
+                    <Text style={styles.signupText}> Already have an account?</Text>
                 </TouchableOpacity>
-
 
             </View>
         </ScrollView>
