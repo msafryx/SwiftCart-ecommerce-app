@@ -6,7 +6,7 @@ import {COLORS} from "@/constants/ColourPallete";
 import ProductGridViewWidget from "@/components/ui/screen/home/widget/ProductGridViewWidget";
 import ProductListViewWidget from "@/components/ui/screen/home/widget/ProductListViewWidget";
 
-export default function HomeProductScreen(){
+export default function HomeProductScreen({navigation}:any){
     const [searchQuery, setSearchQuery] = useState('');
     const [isGridEnabled, setIsGridEnabled] = useState(true);
 
@@ -21,17 +21,13 @@ export default function HomeProductScreen(){
 
             {isGridEnabled?(
                 <ScrollView>
-                    <ProductGridViewWidget/>
-                    <ProductGridViewWidget/>
-                    <ProductGridViewWidget/>
-                    <ProductGridViewWidget/>
+                    <ProductGridViewWidget navigation={navigation}/>
+
                 </ScrollView>
             ):(
                 <ScrollView>
-                    <ProductListViewWidget/>
-                    <ProductListViewWidget/>
-                    <ProductListViewWidget/>
-                    <ProductListViewWidget/>
+                    <ProductListViewWidget navigation={navigation}/>
+
                 </ScrollView>
             )}
 

@@ -16,6 +16,7 @@ import SignupVerifyEmailScreen from "@/components/ui/screen/security/SignupVerif
 import ChangePasswordScreen from "@/components/ui/screen/security/ChangePasswordScreen";
 import ResetPasswordVerifyEmailScreen from "@/components/ui/screen/security/ResetPasswordVerifyEmailScreen";
 import ResetPasswordScreen from "@/components/ui/screen/security/ResetPasswordScreen";
+import ProductDetailsScreen from "@/components/ui/screen/ProductDetailsScreen";
 const Stack = createStackNavigator();
 export default function StackNavigator(){
     return (
@@ -68,9 +69,9 @@ export default function StackNavigator(){
             <Stack.Screen name={'ResetPasswordScreen'}
                           options={{title: 'Reset Password  '}}
                           component={ResetPasswordScreen}/>
-
-
-
+                <Stack.Screen name={'ProductDetails'}
+                              options={{title: 'Product Details '}}
+                              component={ProductDetailsScreen}/>
         </Stack.Navigator>
     );
 }
