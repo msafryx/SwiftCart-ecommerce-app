@@ -3,6 +3,7 @@ import {COLORS} from "@/constants/ColourPallete";
 import {TextInput} from "react-native-paper";
 import {useState} from "react";
 import {Icon} from "react-native-paper";
+import ChangePasswordScreen from "@/components/ui/screen/security/ChangePasswordScreen";
 
 const logo = require('../../../../assets/images/logo/logo-sc.png');
 export default function LoginScreen({navigation}:any){
@@ -38,7 +39,9 @@ export default function LoginScreen({navigation}:any){
                         }} size={20} icon={passwordDisplayState?'eye':'eye-off'}/> }
                     />
                 </View>
-                <TouchableOpacity style={styles.forgetPasswordButton}>
+                <TouchableOpacity
+                    onPress={()=>navigation.navigate('ChangePasswordScreen')}
+                    style={styles.forgetPasswordButton}>
                     <Text style={styles.forgetPasswordText}> Forgot Password</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.loginButton}>

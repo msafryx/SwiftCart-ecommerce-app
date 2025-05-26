@@ -3,12 +3,12 @@ import {COLORS} from "@/constants/ColourPallete";
 import {TextInput} from "react-native-paper";
 import {useState} from "react";
 import {Icon} from "react-native-paper";
+import ChangePasswordScreen from "@/components/ui/screen/security/ChangePasswordScreen";
 
 const logo = require('../../../../assets/images/logo/logo-sc.png');
-export default function SignupScreen({navigation}:any){
+export default function ResetPasswordScreen({navigation}:any){
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
-    const [displayName, setDisplayName]= useState('');
     const [passwordDisplayState, setPasswordDisplayState]= useState(false);
 
 
@@ -39,41 +39,35 @@ export default function SignupScreen({navigation}:any){
                         }} size={20} icon={passwordDisplayState?'eye':'eye-off'}/> }
                     />
                 </View>
-                <View style={styles.formGroup}>
-                    <TextInput
-                        label="Display Name"
-                        mode={'outlined'}
-                        value={displayName}
-                        onChangeText={text => setDisplayName(text)}
-                    />
-                </View>
-
-
                 <TouchableOpacity
-                    onPress={()=>navigation.navigate('SignupVerifyEmail')}
-                    style={styles.signupButton}>
-                    <Text style={styles.signupText}> Register</Text>
+                    onPress={()=>navigation.navigate('ChangePasswordScreen')}
+                    style={styles.forgetPasswordButton}>
+                    <Text style={styles.forgetPasswordText}> Forgot Password</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.loginButton}>
+                    <Text style={styles.loginText}> Login</Text>
                 </TouchableOpacity>
                 <Text style={styles.separateText}> OR </Text>
-                {/*<View style={styles.socialLoginWrapper}>*/}
-                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
-                {/*        <Icon size={20} source={'google'}></Icon>*/}
-                {/*    </TouchableOpacity>*/}
-                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
-                {/*        <Icon size={20} source={'facebook'}></Icon>*/}
-                {/*    </TouchableOpacity>*/}
-                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
-                {/*        <Icon size={20} source={'twitter'}></Icon>*/}
-                {/*    </TouchableOpacity>*/}
-                {/*    <TouchableOpacity style={styles.iconOuter}>*/}
-                {/*        <Icon size={20} source={'github'}></Icon>*/}
-                {/*    </TouchableOpacity>*/}
-                {/*</View>*/}
+                <View style={styles.socialLoginWrapper}>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'google'}></Icon>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'facebook'}></Icon>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'twitter'}></Icon>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'github'}></Icon>
+                    </TouchableOpacity>
+                </View>
                 <TouchableOpacity
-                    onPress={()=>navigation.navigate('Login')}
-                    style={{...styles.signupButton,backgroundColor:COLORS.primary}}>
-                    <Text style={styles.signupText}> Already have an account?</Text>
+                    onPress={()=>navigation.navigate('Signup')}
+                    style={{...styles.loginButton,backgroundColor:COLORS.primary}}>
+                    <Text style={styles.loginText}> Register with the email</Text>
                 </TouchableOpacity>
+
 
             </View>
         </ScrollView>
@@ -100,10 +94,10 @@ const styles = StyleSheet.create({
         textAlign:'center',
         marginTop:30
     },
-    signupText:{
+    loginText:{
         color:COLORS.light,
     },
-    signupButton:{
+    loginButton:{
         backgroundColor:COLORS.blue,
         height:50,
         marginTop:30,
