@@ -48,5 +48,5 @@ app.use('/api/v1/vouchers',VoucherRoute);
 
 
 app.listen(PORT,()=>{
-    console.log(`server up & running on por ${PORT}`);
+    console.log(`server up & running on port ${PORT}`);
 })
