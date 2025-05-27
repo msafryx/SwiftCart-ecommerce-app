@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, ScrollView, Image} from "react-native";
+import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from "react-native";
 import {Searchbar} from "react-native-paper";
 import {useState} from "react";
 import DisplayTypeWidget from "@/components/ui/screen/share/DisplayTypeWidget";
@@ -21,29 +21,55 @@ export default function ProductDetailsScreen(){
                 <View style={styles.imageBackground}>
                     <Image source={{uri:primaryImage}}
                            style={styles.image} resizeMode={'contain'}/>
-
                 </View>
-                <View>
-                    
+                <View style={styles.productImageList}>
+                    {productImages.map((item, index)=>(
+                        <TouchableOpacity
+                            onPress={()=>setPrimaryImage(item.uri)}
+                            key={index} style={{width:80, height:60, borderWidth:1, borderRadius:5}}>
+                            <Image source={{uri:item.uri}}
+                                   style={styles.displayImage} resizeMode={'contain'}/>
+                        </TouchableOpacity>
+                    ))}
+
                 </View>
             </View>
+            <View >
+                <Text style={{fontWeight:'bold', fontSize:20, marginTop:5}}>Apple iPhone 13 128GB | MySoftlogic.lk</Text>
+                <Text>iPhone 13 5G smartphone offers Super Retina XDR OLED display with Dolby Vision HDR and IP68 rated water or dust resistant protection.</Text>
 
+                <View style={{marginTop:10, flexDirection:"row"}}>
+                    <Text style={{color:COLORS.darkOrange,fontWeight:'bold',fontSize:15, marginRight:10 }}> 2500 UAD</Text>
+                    <Text style={{color:COLORS.darkOrange,fontWeight:'bold',fontSize:15,textDecorationLine:'line-through' }}> 2900 UAD</Text>
 
-
+                </View>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    displayImage:{
+        width:'100%',
+        height:'100%'
+    },
+    productImageList:{
+        width:'100%',
+        borderBottomWidth:1,
+        marginTop:10,
+        height:80,
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"center"
+    },
     image:{
         height:200
     },
     imageBackground:{
-        backgroundColor:COLORS.light
+        backgroundColor:COLORS.darkGray
     },
     top:{
         width:'100%',
-        borderWidth:1
     },
     container:{
         backgroundColor:COLORS.light,
