@@ -1,7 +1,9 @@
-import {View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
+import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from "react-native";
 import {useState} from "react";
 import {COLORS} from "@/constants/ColourPallete";
 import {Icon} from "react-native-paper";
+import ReviewWidget from "@/components/ui/screen/home/widget/ReviewWidget";
+import ProductListViewWidget from "@/components/ui/screen/home/widget/ProductListViewWidget";
 
 
 export default function ProductDetailsScreen(){
@@ -14,7 +16,7 @@ export default function ProductDetailsScreen(){
     const [status , setStatus] = useState(true);
 
     return(
-        <View style={styles.container}>
+        <ScrollView  style={styles.container}>
             <View style={styles.top}>
                 <View style={styles.imageBackground}>
                     <Image source={{uri:primaryImage}}
@@ -63,7 +65,25 @@ export default function ProductDetailsScreen(){
                 </TouchableOpacity>
 
             </View>
-        </View>
+            {
+                status?(
+                    <View>
+                        <ReviewWidget/>
+                        <ReviewWidget/>
+                        <ReviewWidget/>
+                        <ReviewWidget/>
+
+                    </View>
+                ):(
+                    <View>
+                        <ProductListViewWidget/>
+                        <ProductListViewWidget/>
+                        <ProductListViewWidget/>
+                        <ProductListViewWidget/>
+                    </View>
+                )
+            }
+        </ScrollView>
     )
 }
 

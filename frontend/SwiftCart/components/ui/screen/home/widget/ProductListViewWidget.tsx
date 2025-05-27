@@ -2,10 +2,6 @@ import {View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 import {COLORS} from "@/constants/ColourPallete";
 import {Icon} from "react-native-paper";
 
-interface ProductListViewWidgetProps {
-    navigation?: any
-}
-
 export default function ProductListViewWidget({navigation}: any) {
     return (
         <TouchableOpacity
