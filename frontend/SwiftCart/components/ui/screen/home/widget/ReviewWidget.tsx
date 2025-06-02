@@ -1,7 +1,6 @@
 import {View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 import {COLORS} from "@/constants/ColourPallete";
 import {Icon} from "react-native-paper";
-import {ICONS} from "jest-util";
 import {use, useState} from "react";
 
 export default function ReviewWidget(){
